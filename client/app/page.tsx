@@ -47,15 +47,15 @@ const Pagination = () => {
       {loading ? (
         <div className="flex justify-center items-center h-64">
           <div className="spinner-border text-blue-500" role="status">
-          <div className="lds-dual-ring"></div>
+            <div className="lds-dual-ring"></div>
           </div>
         </div>
       ) : (
         <>
-        <div>
+          <div>
             {currentItems.map((item: any, index) => (
               <div className="mt-5 flex items-center justify-center" key={item?.callSid}>
-                <span className="mr-20">{index + 1}</span>
+                <span className="mr-20">{((currentPage - 1) * itemsPerPage) + index + 1}</span>
                 <audio controls className="w-[65%]">
                   <source src={item?.mediaUrl} type="audio/mpeg" />
                 </audio>
